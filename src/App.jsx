@@ -1,13 +1,16 @@
 import { useState } from "react";
+
 import GeneralInfo from "./components/GeneralInfo";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+
+import "./styles/App.css";
 
 function App() {
   const [editingSection, setEditingSection] = useState(null);
 
   return (
-    <div>
+    <div className="app-container">
       <h1>CV Builder</h1>
 
       <GeneralInfo

@@ -1,0 +1,69 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.field-label {
+  font-weight: 600;
+  color: #3b3f5c;
+  font-size: 14px;
+}
+
+.field-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.field input,
+.field textarea {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  outline: none;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #7c5cff;
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.15);
+}
+
+.field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.field button {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #7c5cff;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.field button:hover {
+  background: #6846ff;
+  transform: translateY(-1px);
+}
+
+.field button:focus-visible {
+  outline: 3px solid rgba(124, 92, 255, 0.4);
+  outline-offset: 2px;
+}
+
+.field span {
+  flex: 1;
+  padding: 8px 10px;
+  background: #eef1f8;
+  border-radius: 8px;
+  color: #2b2d42;
+}

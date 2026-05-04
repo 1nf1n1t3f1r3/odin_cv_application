@@ -1,4 +1,4 @@
-// src/components/Field.jsx
+import "../styles/Field.css";
 
 function Field({
   label,
@@ -8,25 +8,30 @@ function Field({
   onChange,
   onEditToggle,
 }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onEditToggle();
+  };
+
   return (
-    <div>
-      <label>{label}: </label>
+    <div className="field">
+      <label className="field-label">{label}:</label>
 
       {isEditing ? (
-        <>
+        <form onSubmit={handleSubmit} className="field-controls">
           {type === "textarea" ? (
             <textarea value={value} onChange={onChange} />
           ) : (
             <input type={type} value={value} onChange={onChange} />
           )}
 
-          <button onClick={onEditToggle}>Submit</button>
-        </>
+          <button type="submit">Submit</button>
+        </form>
       ) : (
-        <>
+        <div className="field-controls">
           <span>{value}</span>
           <button onClick={onEditToggle}>Edit</button>
-        </>
+        </div>
       )}
     </div>
   );
