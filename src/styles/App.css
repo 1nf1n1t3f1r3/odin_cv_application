@@ -24,3 +24,24 @@ body {
 h1 {
   text-align: center;
 }
+
+.download-btn {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #7c5cff;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.download-btn:hover {
+  background: #6846ff;
+  transform: translateY(-1px);
+}
+
+.download-btn:focus-visible {
+  outline: 3px solid rgba(124, 92, 255, 0.4);
+  outline-offset: 2px;
+}

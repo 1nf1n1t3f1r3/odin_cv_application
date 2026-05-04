@@ -1,29 +1,56 @@
-import "../styles/Preview.css";
+// src/components/Preview.jsx
 
 function Preview({ general, education, experience }) {
   return (
-    <div className="cv-preview" id="cv-preview">
-      <h2>{general.name}</h2>
-      <p>
-        {general.email} | {general.phone}
-      </p>
+    <div id="cv-preview" className="preview">
+      <h2>CV Preview</h2>
 
-      <hr />
+      {/* GENERAL INFO */}
+      <section>
+        <h3>General Information</h3>
+        <p>
+          <strong>Name:</strong> {general.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {general.email}
+        </p>
+        <p>
+          <strong>Phone:</strong> {general.phone}
+        </p>
+      </section>
 
-      <h3>Education</h3>
-      <p>{education.school}</p>
-      <p>{education.study}</p>
-      <p>{education.date}</p>
+      {/* EDUCATION */}
+      <section>
+        <h3>Education</h3>
+        <p>
+          <strong>School:</strong> {education.school}
+        </p>
+        <p>
+          <strong>Study:</strong> {education.study}
+        </p>
+        <p>
+          <strong>Graduation Date:</strong> {education.date}
+        </p>
+      </section>
 
-      <hr />
-
-      <h3>Experience</h3>
-      <p>{experience.company}</p>
-      <p>{experience.position}</p>
-      <p>{experience.responsibilities}</p>
-      <p>
-        {experience.startDate} - {experience.endDate}
-      </p>
+      {/* EXPERIENCE */}
+      <section>
+        <h3>Experience</h3>
+        <p>
+          <strong>Company:</strong> {experience.company}
+        </p>
+        <p>
+          <strong>Position:</strong> {experience.position}
+        </p>
+        <p>
+          <strong>Responsibilities:</strong>
+        </p>
+        <p>{experience.responsibilities}</p>
+        <p>
+          <strong>Duration:</strong> {experience.startDate} –{" "}
+          {experience.endDate}
+        </p>
+      </section>
     </div>
   );
 }
