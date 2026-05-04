@@ -1,0 +1,22 @@
+.cv-preview {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  line-height: 1.6;
+  color: #222;
+}
+
+.cv-preview h2 {
+  margin-bottom: 4px;
+}
+
+.cv-preview h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.cv-preview hr {
+  margin: 16px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
