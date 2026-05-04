@@ -46,7 +46,7 @@ function Experience({ editingSection, setEditingSection }) {
 
       <Field
         label="Responsibilities"
-        type="text"
+        type="textarea"
         value={responsibilities}
         isEditing={editingSection === "experience-responsibilities"}
         onChange={(e) => setResponsibilities(e.target.value)}
@@ -60,8 +60,8 @@ function Experience({ editingSection, setEditingSection }) {
       />
 
       <Field
-        label="Start Date"
-        type="text"
+        label="Position Start Date"
+        type="date"
         value={startDate}
         isEditing={editingSection === "experience-startDate"}
         onChange={(e) => setStartDate(e.target.value)}
@@ -75,8 +75,8 @@ function Experience({ editingSection, setEditingSection }) {
       />
 
       <Field
-        label="End Date"
-        type="text"
+        label="Position End Date"
+        type="date"
         value={endDate}
         isEditing={editingSection === "experience-endDate"}
         onChange={(e) => setEndDate(e.target.value)}

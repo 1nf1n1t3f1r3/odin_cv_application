@@ -39,8 +39,8 @@ function Education({ editingSection, setEditingSection }) {
       />
 
       <Field
-        label="Date"
-        type="text"
+        label="Study End Date"
+        type="date"
         value={date}
         isEditing={editingSection === "education-date"}
         onChange={(e) => setDate(e.target.value)}
