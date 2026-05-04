@@ -1,12 +1,23 @@
-//src/components/GeneralInfo.jsx
-
-import { useState } from "react";
 import Field from "./Field.jsx";
 
-function GeneralInfo({ editingSection, setEditingSection }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+function GeneralInfo({
+  general,
+  setGeneral,
+  editingSection,
+  setEditingSection,
+}) {
+  const handleChange = (field) => (e) => {
+    setGeneral({
+      ...general,
+      [field]: e.target.value,
+    });
+  };
+
+  const toggleEdit = (field) => {
+    setEditingSection((prev) =>
+      prev === `general-${field}` ? null : `general-${field}`,
+    );
+  };
 
   return (
     <div>
@@ -15,40 +26,28 @@ function GeneralInfo({ editingSection, setEditingSection }) {
       <Field
         label="Name"
         type="text"
-        value={name}
+        value={general.name}
         isEditing={editingSection === "general-name"}
-        onChange={(e) => setName(e.target.value)}
-        onEditToggle={() =>
-          setEditingSection(
-            editingSection === "general-name" ? null : "general-name",
-          )
-        }
+        onChange={handleChange("name")}
+        onEditToggle={() => toggleEdit("name")}
       />
 
       <Field
         label="Email"
         type="email"
-        value={email}
+        value={general.email}
         isEditing={editingSection === "general-email"}
-        onChange={(e) => setEmail(e.target.value)}
-        onEditToggle={() =>
-          setEditingSection(
-            editingSection === "general-email" ? null : "general-email",
-          )
-        }
+        onChange={handleChange("email")}
+        onEditToggle={() => toggleEdit("email")}
       />
 
       <Field
         label="Phone"
         type="text"
-        value={phone}
+        value={general.phone}
         isEditing={editingSection === "general-phone"}
-        onChange={(e) => setPhone(e.target.value)}
-        onEditToggle={() =>
-          setEditingSection(
-            editingSection === "general-phone" ? null : "general-phone",
-          )
-        }
+        onChange={handleChange("phone")}
+        onEditToggle={() => toggleEdit("phone")}
       />
     </div>
   );

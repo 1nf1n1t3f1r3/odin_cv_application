@@ -1,23 +1,23 @@
-//src/components/Education.jsx
+// src/components/Education.jsx
 
-import { useState } from "react";
 import Field from "./Field.jsx";
 
-function Education({ editingSection, setEditingSection }) {
-  const [school, setSchool] = useState("");
-  const [study, setStudy] = useState("");
-  const [date, setDate] = useState("");
-
+function Education({
+  editingSection,
+  setEditingSection,
+  education,
+  setEducation,
+}) {
   return (
     <div>
-      <h2>General Info</h2>
+      <h2>Education</h2>
 
       <Field
         label="School"
         type="text"
-        value={school}
+        value={education.school}
         isEditing={editingSection === "education-school"}
-        onChange={(e) => setSchool(e.target.value)}
+        onChange={(e) => setEducation({ ...education, school: e.target.value })}
         onEditToggle={() =>
           setEditingSection(
             editingSection === "education-school" ? null : "education-school",
@@ -27,10 +27,10 @@ function Education({ editingSection, setEditingSection }) {
 
       <Field
         label="Study"
-        type="study"
-        value={study}
+        type="text"
+        value={education.study}
         isEditing={editingSection === "education-study"}
-        onChange={(e) => setStudy(e.target.value)}
+        onChange={(e) => setEducation({ ...education, study: e.target.value })}
         onEditToggle={() =>
           setEditingSection(
             editingSection === "education-study" ? null : "education-study",
@@ -41,9 +41,9 @@ function Education({ editingSection, setEditingSection }) {
       <Field
         label="Study End Date"
         type="date"
-        value={date}
+        value={education.date}
         isEditing={editingSection === "education-date"}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={(e) => setEducation({ ...education, date: e.target.value })}
         onEditToggle={() =>
           setEditingSection(
             editingSection === "education-date" ? null : "education-date",

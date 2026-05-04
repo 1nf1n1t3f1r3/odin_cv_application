@@ -1,25 +1,25 @@
-//src/components/Experience.jsx
+// src/components/Experience.jsx
 
-import { useState } from "react";
 import Field from "./Field.jsx";
 
-function Experience({ editingSection, setEditingSection }) {
-  const [company, setCompany] = useState("");
-  const [position, setPosition] = useState("");
-  const [responsibilities, setResponsibilities] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-
+function Experience({
+  editingSection,
+  setEditingSection,
+  experience,
+  setExperience,
+}) {
   return (
     <div>
-      <h2>General Info</h2>
+      <h2>Experience</h2>
 
       <Field
         label="Company"
         type="text"
-        value={company}
+        value={experience.company}
         isEditing={editingSection === "experience-company"}
-        onChange={(e) => setCompany(e.target.value)}
+        onChange={(e) =>
+          setExperience({ ...experience, company: e.target.value })
+        }
         onEditToggle={() =>
           setEditingSection(
             editingSection === "experience-company"
@@ -32,9 +32,11 @@ function Experience({ editingSection, setEditingSection }) {
       <Field
         label="Position"
         type="text"
-        value={position}
+        value={experience.position}
         isEditing={editingSection === "experience-position"}
-        onChange={(e) => setPosition(e.target.value)}
+        onChange={(e) =>
+          setExperience({ ...experience, position: e.target.value })
+        }
         onEditToggle={() =>
           setEditingSection(
             editingSection === "experience-position"
@@ -47,9 +49,14 @@ function Experience({ editingSection, setEditingSection }) {
       <Field
         label="Responsibilities"
         type="textarea"
-        value={responsibilities}
+        value={experience.responsibilities}
         isEditing={editingSection === "experience-responsibilities"}
-        onChange={(e) => setResponsibilities(e.target.value)}
+        onChange={(e) =>
+          setExperience({
+            ...experience,
+            responsibilities: e.target.value,
+          })
+        }
         onEditToggle={() =>
           setEditingSection(
             editingSection === "experience-responsibilities"
@@ -60,31 +67,31 @@ function Experience({ editingSection, setEditingSection }) {
       />
 
       <Field
-        label="Position Start Date"
+        label="Start Date"
         type="date"
-        value={startDate}
-        isEditing={editingSection === "experience-startDate"}
-        onChange={(e) => setStartDate(e.target.value)}
+        value={experience.startDate}
+        isEditing={editingSection === "experience-start"}
+        onChange={(e) =>
+          setExperience({ ...experience, startDate: e.target.value })
+        }
         onEditToggle={() =>
           setEditingSection(
-            editingSection === "experience-startDate"
-              ? null
-              : "experience-startDate",
+            editingSection === "experience-start" ? null : "experience-start",
           )
         }
       />
 
       <Field
-        label="Position End Date"
+        label="End Date"
         type="date"
-        value={endDate}
-        isEditing={editingSection === "experience-endDate"}
-        onChange={(e) => setEndDate(e.target.value)}
+        value={experience.endDate}
+        isEditing={editingSection === "experience-end"}
+        onChange={(e) =>
+          setExperience({ ...experience, endDate: e.target.value })
+        }
         onEditToggle={() =>
           setEditingSection(
-            editingSection === "experience-endDate"
-              ? null
-              : "experience-endDate",
+            editingSection === "experience-end" ? null : "experience-end",
           )
         }
       />
