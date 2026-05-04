@@ -1,4 +1,4 @@
-//src/components/GeneralInfo.jsx
+//src/components/Education.jsx
 
 import { useState } from "react";
 import Field from "./Field.jsx";
