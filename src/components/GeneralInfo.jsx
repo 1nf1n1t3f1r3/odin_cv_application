@@ -3,12 +3,10 @@
 import { useState } from "react";
 import Field from "./Field.jsx";
 
-function GeneralInfo() {
+function GeneralInfo({ editingSection, setEditingSection }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-
-  const [editingField, setEditingField] = useState(null);
 
   return (
     <div>
@@ -18,10 +16,12 @@ function GeneralInfo() {
         label="Name"
         type="text"
         value={name}
-        isEditing={editingField === "name"}
+        isEditing={editingSection === "general-name"}
         onChange={(e) => setName(e.target.value)}
         onEditToggle={() =>
-          setEditingField(editingField === "name" ? null : "name")
+          setEditingSection(
+            editingSection === "general-name" ? null : "general-name",
+          )
         }
       />
 
@@ -29,10 +29,12 @@ function GeneralInfo() {
         label="Email"
         type="email"
         value={email}
-        isEditing={editingField === "email"}
+        isEditing={editingSection === "general-email"}
         onChange={(e) => setEmail(e.target.value)}
         onEditToggle={() =>
-          setEditingField(editingField === "email" ? null : "email")
+          setEditingSection(
+            editingSection === "general-email" ? null : "general-email",
+          )
         }
       />
 
@@ -40,10 +42,12 @@ function GeneralInfo() {
         label="Phone"
         type="text"
         value={phone}
-        isEditing={editingField === "phone"}
+        isEditing={editingSection === "general-phone"}
         onChange={(e) => setPhone(e.target.value)}
         onEditToggle={() =>
-          setEditingField(editingField === "phone" ? null : "phone")
+          setEditingSection(
+            editingSection === "general-phone" ? null : "general-phone",
+          )
         }
       />
     </div>

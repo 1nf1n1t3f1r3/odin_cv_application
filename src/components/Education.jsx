@@ -3,12 +3,10 @@
 import { useState } from "react";
 import Field from "./Field.jsx";
 
-function GeneralInfo() {
+function Education({ editingSection, setEditingSection }) {
   const [school, setSchool] = useState("");
   const [study, setStudy] = useState("");
   const [date, setDate] = useState("");
-
-  const [editingField, setEditingField] = useState(null);
 
   return (
     <div>
@@ -18,10 +16,12 @@ function GeneralInfo() {
         label="School"
         type="text"
         value={school}
-        isEditing={editingField === "school"}
+        isEditing={editingSection === "education-school"}
         onChange={(e) => setSchool(e.target.value)}
         onEditToggle={() =>
-          setEditingField(editingField === "school" ? null : "school")
+          setEditingSection(
+            editingSection === "education-school" ? null : "education-school",
+          )
         }
       />
 
@@ -29,10 +29,12 @@ function GeneralInfo() {
         label="Study"
         type="study"
         value={study}
-        isEditing={editingField === "study"}
+        isEditing={editingSection === "education-study"}
         onChange={(e) => setStudy(e.target.value)}
         onEditToggle={() =>
-          setEditingField(editingField === "study" ? null : "study")
+          setEditingSection(
+            editingSection === "education-study" ? null : "education-study",
+          )
         }
       />
 
@@ -40,14 +42,16 @@ function GeneralInfo() {
         label="Date"
         type="text"
         value={date}
-        isEditing={editingField === "date"}
+        isEditing={editingSection === "education-date"}
         onChange={(e) => setDate(e.target.value)}
         onEditToggle={() =>
-          setEditingField(editingField === "date" ? null : "date")
+          setEditingSection(
+            editingSection === "education-date" ? null : "education-date",
+          )
         }
       />
     </div>
   );
 }
 
-export default GeneralInfo;
+export default Education;
